@@ -48,15 +48,15 @@ function check_acc(x) {
         if (user[j].account_number === x)
             return j;
     }
-    return -1; // Return -1 if account not found
+    return -1; 
 }
 
-// Create accounts with "Simran" as the name for all
-create("Simran", 8765, 34);
-create("Sourabh", 7890, 18);
+
+create("Simran", 7765, 34);
+create("Sourabh", 3290, 18);
 create("Ankita", 3456, 77);
 
-// Test deposit, saving, and withdraw functions
+
 deposit(2, 500);
 saving(2);
-withdraw(2, 300); // Corrected the syntax issue
+withdraw(2, 300);
