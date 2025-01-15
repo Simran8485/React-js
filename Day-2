@@ -53,8 +53,8 @@ function check_acc(x) {
 
 // Create accounts with "Simran" as the name for all
 create("Simran", 8765, 34);
-create("Simran", 7890, 18);
-create("Simran", 3456, 77);
+create("Sourabh", 7890, 18);
+create("Ankita", 3456, 77);
 
 // Test deposit, saving, and withdraw functions
 deposit(2, 500);
