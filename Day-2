@@ -1,0 +1,62 @@
+let user = [];
+let id = 0;
+
+function create(username, userphone, userage) {
+    let i = user.length;
+    user[i] = { name: username, contact: userphone, age: userage, amount: 0, account_number: i + 1 };
+    console.log("Account created with the following details:");
+    console.log(`Name: ${user[i].name}`);
+    console.log(`Account number: ${user[i].account_number}`);
+    console.log(`Available balance: ${user[i].amount} \n`);
+}
+
+function deposit(acc_number, input_amount) {
+    let m = check_acc(acc_number);
+    if (m === -1) {
+        console.log("Account number is not found in the database..\n");
+        return;
+    }
+    user[m].amount += input_amount;
+    console.log("Amount deposited successfully..\n");
+}
+
+function withdraw(acc_number, input_amount) {
+    let m = check_acc(acc_number);
+    if (m === -1) {
+        console.log("Account number is not found in the database..\n");
+        return;
+    }
+    if (user[m].amount < input_amount) {
+        console.log("Insufficient funds.\n");
+    } else {
+        user[m].amount -= input_amount;
+        console.log("Amount withdrawn successfully..\n");
+    }
+}
+
+function saving(acc_number) {
+    let m = check_acc(acc_number);
+    if (m === -1) {
+        console.log("Account number is not found in the database..\n");
+        return;
+    }
+    console.log(`Available amount of ${user[m].name} is: ${user[m].amount}`);
+}
+
+function check_acc(x) {
+    for (let j = 0; j < user.length; j++) {
+        if (user[j].account_number === x)
+            return j;
+    }
+    return -1; // Return -1 if account not found
+}
+
+// Create accounts with "Simran" as the name for all
+create("Simran", 8765, 34);
+create("Simran", 7890, 18);
+create("Simran", 3456, 77);
+
+// Test deposit, saving, and withdraw functions
+deposit(2, 500);
+saving(2);
+withdraw(2, 300); // Corrected the syntax issue
